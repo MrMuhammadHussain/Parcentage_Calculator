@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcentage calculator</title>
+</head>
+
+<body>
+
+    <form onsubmit="Calculate(); return false">
+        Obtain Mark: <input type="number" id="Omark" placeholder="Enter Obtain Number"><br>
+        Total Mark: <input type="number" id="Tmark" placeholder="Enter Total Mark"><br>
+        <button type="submit">Parcentage</button>
+    </form>
+    <h3 id="result"></h3>
+</body>
+<script>
+    function Calculate() {
+        let Omark = +document.querySelector("#Omark").value
+        let Tmark = +document.querySelector("#Tmark").value
+        let per = (Omark / Tmark) * 100;
+        if (Omark <= Tmark) {
+            console.log(per)
+            let Grade = ""
+            if (per >= 90 && per <= 100) {
+                Grade = "Your Grad is A+"
+            } else if (per >= 80 && per <= 90) {
+                Grade = "Your Grad A"
+            } else if (per >= 70 && per <= 80) {
+                Grade = "Your Grad is B"
+            } else if (per >= 60 && per <= 70) {
+                Grade = "Your Grad is C"
+            } else if (per >= 50 && per <= 60) {
+                Grade = "Your are Pass"
+            } else Grade = "You are Fail"
+            document.querySelector("#result").innerHTML = "Your Parcentage Is % " + per.toFixed() + " and " + Grade
+
+        } else document.querySelector("#result").innerHTML = "Error"
+
+    }
+
+
+</script>
+
+</html>
